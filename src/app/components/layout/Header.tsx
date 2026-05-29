@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
+import { AuthButton } from "../features/auth/AuthButton";
 
 export function Header() {
     return (
@@ -12,7 +13,7 @@ export function Header() {
                     <Link href="/" className="text-sm text-muted-foreground">
                         投稿一覧
                     </Link>
-                    <Button size="sm">ログイン</Button>
+                    <AuthButton />
                 </nav>
             </div>
         </header>
