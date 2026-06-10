@@ -132,6 +132,12 @@ AUTH_GOOGLE_SECRET=
 
 ---
 
+## Deployment
+
+VercelとGitHubを連携し、mainブランチへのpushをトリガーに自動で本番環境へデプロイされる構成にしています。
+
+また、ブランチごとにPreview Deployが作成されるため、本番反映前に変更内容を確認できます。
+
 ## What I Learned
 
 * Next.js App Router
