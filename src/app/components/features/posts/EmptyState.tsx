@@ -1,12 +1,13 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button";
 import { FileText } from "lucide-react"
+import { Route } from "next";
 
 type EmptyStateProps = {
     title?: string
     description?: string
     buttonText?: string
-    buttonHref?: string
+    buttonHref?: Route
 }
 
 export function EmptyState({

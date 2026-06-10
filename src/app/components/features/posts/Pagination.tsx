@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Button } from '@/components/ui/button';
+import { Route } from "next";
 
 type Props = {
     currentPage: number,
@@ -20,7 +21,7 @@ export function Pagination({ currentPage, totalPages, query }: Props) {
     return (
         <div className="mt-8 flex items-center justify-center gap-2">
             {currentPage > 1 && (<Button asChild variant="outline">
-                <Link href={createPageHref(currentPage - 1)}>前へ</Link>
+                <Link href={createPageHref(currentPage - 1) as Route}>前へ</Link>
             </Button>)}
 
             {Array.from({ length: totalPages }, (_, index) => {
@@ -33,12 +34,12 @@ export function Pagination({ currentPage, totalPages, query }: Props) {
                         variant={isActive ? "default" : "outline"}
                         size={"icon"}
                     >
-                        <Link href={createPageHref(page)}>{page}</Link>
+                        <Link href={createPageHref(page) as Route}>{page}</Link>
                     </Button>
                 )
             })}
             {currentPage < totalPages && (<Button asChild variant="outline">
-                <Link href={createPageHref(currentPage + 1)}>次へ</Link>
+                <Link href={createPageHref(currentPage + 1) as Route}>次へ</Link>
             </Button>)}
         </div>
 
