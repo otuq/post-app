@@ -1,9 +1,9 @@
 "use client"
 
 import { cn } from "@/lib/utils";
-import { Button } from "./button";
 import { Input } from "./input";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
 
 export function SearchBar({ className, ...props }: React.ComponentProps<"div">) {
     const router = useRouter()

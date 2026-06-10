@@ -8,33 +8,49 @@ export async function AuthButton() {
 
     if (!session?.user) {
         return (
-            <form
-                action={async () => {
-                    "use server";
-                    await signIn();
-                }}
-            >
-                <Button type="submit">ログイン</Button>
-            </form>
+            <div className="flex gap-2">
+                <form
+                    action={async () => {
+                        "use server";
+                        await signIn("google");
+                    }}
+                >
+                    <Button type="submit" variant="outline">
+                        Googleでログイン
+                    </Button>
+                </form>
+
+                <form
+                    action={async () => {
+                        "use server";
+                        await signIn("github");
+                    }}
+                >
+                    <Button type="submit" variant="outline">
+                        GitHubでログイン
+                    </Button>
+                </form>
+            </div>
+
         );
     }
 
-    return (
-        <div className="flex items-center gap-3">
-            <span className="text-sm text-muted-foreground">
-                {session.user.name ?? session.user.email}
-            </span>
+    // return (
+    //     <div className="flex items-center gap-3">
+    //         <span className="text-sm text-muted-foreground">
+    //             {session.user.name ?? session.user.email}
+    //         </span>
 
-            <form
-                action={async () => {
-                    "use server";
-                    await signOut();
-                }}
-            >
-                <Button type="submit" variant="outline">
-                    ログアウト
-                </Button>
-            </form>
-        </div>
-    );
+    //         <form
+    //             action={async () => {
+    //                 "use server";
+    //                 await signOut();
+    //             }}
+    //         >
+    //             <Button type="submit" variant="outline">
+    //                 ログアウト
+    //             </Button>
+    //         </form>
+    //     </div>
+    // );
 }

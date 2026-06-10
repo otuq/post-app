@@ -3,35 +3,43 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Input } from "../../ui/input";
-import { Button } from "../../ui/button";
 import { createPost } from "@/actions/createPost";
 import { PostInput, postScheme } from "@/lib/validations/post";
 import { useTransition } from "react";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import { Button } from '@/components/ui/button';
+import Loading from "@/app/loading";
 
 export function PostForm() {
     const [isPending, startTransition] = useTransition()
-
-
+    const router = useRouter()
     const { register, handleSubmit, reset, formState: { errors } } = useForm<PostInput>({
         resolver: zodResolver(postScheme),
         defaultValues: {
             title: "",
-            body: ""
+            content: ""
         }
     })
 
     function onSubmit(values: PostInput) {
         const formData = new FormData()
         formData.append("title", values.title)
-        formData.append("body", values.body)
+        formData.append("content", values.content)
         startTransition(async () => {
-            await createPost(formData)
+            const result = await createPost(formData)
+            if (!result.success) {
+                toast.error(result.message)
+                return
+            }
+            toast.success(result.message)
             reset()
+            router.refresh()
         })
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="mb-8 rounded-xl border bg-white p-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="mb-8 rounded-xl border p-5">
             <div className="space-y-4">
                 <Input placeholder="タイトル" {...register("title")} />
                 {errors.title && (
@@ -41,17 +49,16 @@ export function PostForm() {
                 )}
                 <textarea
                     placeholder="本文"
-                    className="min-h-32 w-full rounded-md border px-3 py-2 text-sm" {...register("body")}
+                    className="min-h-32 w-full rounded-md border px-3 py-2 text-sm" {...register("content")}
                 />
-                {errors.body && (
+                {errors.content && (
                     <p className="mt-1 text-sm text-red-500">
-                        {errors.body.message}
+                        {errors.content?.message}
                     </p>
                 )}
                 <Button type="submit" disabled={isPending}>
                     {isPending ? "投稿中" : "投稿する"}
                 </Button>
-
             </div>
         </form>
     );
