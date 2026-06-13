@@ -2,7 +2,7 @@
 import type { MetadataRoute } from "next"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = "https://あなたのvercel-url.vercel.app"
+    const baseUrl = "https://https://post-app-ruby.vercel.app/-url.vercel.app"
 
     return [
         {
