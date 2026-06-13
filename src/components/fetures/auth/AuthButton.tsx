@@ -1,6 +1,6 @@
 // src/components/features/auth/AuthButton.tsx
 
-import { auth, signIn, signOut } from "../../../../../auth";
+import { auth, signIn, signOut } from "../../../../auth";
 import { Button } from "@/components/ui/button";
 
 export async function AuthButton() {

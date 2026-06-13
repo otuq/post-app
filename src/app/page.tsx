@@ -1,6 +1,6 @@
 
 import { prisma } from "@/lib/prisma";
-import { HomePage } from "./components/features/home/HomePage";
+import { HomePage } from "../components/fetures/home/HomePage";
 import { auth } from "../../auth";
 
 type Props = {

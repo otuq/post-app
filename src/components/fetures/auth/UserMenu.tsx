@@ -1,5 +1,5 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { auth, signIn, signOut } from "../../../../../auth"
+import { auth, signIn, signOut } from "../../../../auth"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 

@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 import { auth } from "../../../auth";
 import { prisma } from "@/lib/prisma";
-import { PostCard } from "../components/ui/PostCard";
-import { EmptyState } from "../components/features/posts/EmptyState";
+import { PostCard } from "../../components/ui/PostCard";
+import { EmptyState } from "../../components/fetures/posts/EmptyState";
 
 export default async function MyPostsPage() {
     const session = await auth()

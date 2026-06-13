@@ -1,5 +1,5 @@
-import { DeleteButton } from '../features/posts/DeleteButton';
-import { EditPostButton } from "../features/posts/EditPostButton";
+import { DeleteButton } from '../fetures/posts/DeleteButton';
+import { EditPostButton } from "../fetures/posts/EditPostButton";
 import { Post } from "@/types/post"
 import Link from "next/link";
 

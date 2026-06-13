@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { AuthButton } from "../features/auth/AuthButton";
-import { UserMenu } from "../features/auth/UserMenu";
+import { AuthButton } from "../fetures/auth/AuthButton";
+import { UserMenu } from "../fetures/auth/UserMenu";
 import { ThemeToggle } from "@/components/fetures/theme/ThemeToggle";
 
 export function Header() {

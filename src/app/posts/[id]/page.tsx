@@ -2,8 +2,8 @@ import { prisma } from "@/lib/prisma"
 import { notFound } from "next/navigation"
 import { auth } from "../../../../auth"
 import Link from "next/link"
-import { EditPostButton } from "@/app/components/features/posts/EditPostButton"
-import { DeleteButton } from "@/app/components/features/posts/DeleteButton"
+import { EditPostButton } from "@/components/fetures/posts/EditPostButton"
+import { DeleteButton } from "@/components/fetures/posts/DeleteButton"
 import { Metadata } from "next"
 
 type Props = {
